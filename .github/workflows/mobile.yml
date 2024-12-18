@@ -40,14 +40,10 @@ jobs:
     - name: Display .NET Info
       run: 'dotnet --info'
 
-    - name: Build Final Course Solution
+    - name: Build Final Course Solution, MVVM Toolkit C#
       run: |
-        dotnet build -c Release "./3. Advanced MAUI\8. Unit Testing/src/0. Unit Tests/HelloMaui.sln"
-        
-    - name: Build All Solutions
-      shell: pwsh
-      run: ./BuildAllSolutions.ps1
-        
-    - name: Run All Unit Tests
-      shell: pwsh
-      run: ./RunAllUnitTests.ps1
+        dotnet build -c Release "./15. MVVM Architecture/src/2. MVVM Toolkit (C#)/HelloMaui.sln"
+
+    - name: Build Final Course Solution, MVVM Toolkit XAML
+      run: |
+        dotnet build -c Release "./15. MVVM Architecture/src/2a. MVVM Toolkit (XAML)/HelloMaui.sln"
