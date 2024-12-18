@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<helloMaui:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:helloMaui="clr-namespace:HelloMaui"
+                           x:Class="HelloMaui.MainPage"
+                           Title="MainPage"
+                           BackgroundColor="DarkViolet">
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            
+            <Grid
+                BackgroundColor="LightSteelBlue"
+                RowSpacing="12"
+                ColumnSpacing="12"
+                RowDefinitions="*,100,40,500"
+                ColumnDefinitions="*,*,*"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Padding="12"
+                Margin="0,6,0,0">
+
+                <Image x:Name="IconImage"
+                       WidthRequest="500"
+                       HeightRequest="250"
+                       Aspect="AspectFit"
+                       Source="dotnet_bot.png"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="3" />
+
+                <Label
+                    BackgroundColor="Green"
+                    Text="Hello MAUI"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3" />
+
+                <Entry
+                    Placeholder="First Entry"
+                    PlaceholderColor="DarkGray"
+                    TextColor="Black"
+                    Grid.Row="2"
+                    Grid.Column="0" />
+
+                <Entry
+                    Placeholder="Second Entry"
+                    PlaceholderColor="DarkGray"
+                    TextColor="Black"
+                    Grid.Row="2"
+                    Grid.Column="1" />
+
+                <Entry
+                    Placeholder="Third Entry"
+                    PlaceholderColor="DarkGray"
+                    TextColor="Black"
+                    Grid.Row="2"
+                    Grid.Column="2" />
+
+                <Label
+                    Text="LARGE TEXT"
+                    FontSize="100"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3" />
+
+            </Grid>
+            
+        </ScrollView>
+        
+    </ContentPage.Content>
+    
+</helloMaui:BaseContentPage>

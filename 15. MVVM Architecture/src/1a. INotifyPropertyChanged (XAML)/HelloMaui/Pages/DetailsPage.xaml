@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<helloMaui:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                           xmlns:helloMaui="clr-namespace:HelloMaui"
+                           x:DataType="helloMaui:DetailsViewModel"
+                           x:TypeArguments="helloMaui:DetailsViewModel"
+                           x:Class="HelloMaui.DetailsPage"
+                           Title="{Binding LibraryTitle}">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior TextOverride="List" />
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+
+        <VerticalStackLayout 
+            Spacing="12"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Padding="12">
+            <Image
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HeightRequest="250"
+                WidthRequest="250"
+                Source="{Binding LibraryImageSource}" />
+
+            <Label
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                FontAttributes="Bold"
+                FontSize="24"
+                Text="{Binding LibraryTitle}" />
+
+            <Label
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                FontAttributes="Italic"
+                FontSize="16"
+                Text="{Binding LibraryDescription}" />
+
+            <Button
+                Text="Back"
+                Command="{Binding BackButtonCommand, Mode=OneTime}" />
+        </VerticalStackLayout>
+
+    </ContentPage.Content>
+</helloMaui:BaseContentPage>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<helloMaui:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+                           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                           xmlns:helloMaui="clr-namespace:HelloMaui"
+                           ios:Page.UseSafeArea="True"
+                           x:DataType="helloMaui:ListViewModel"
+                           x:TypeArguments="helloMaui:ListViewModel"
+                           x:Class="HelloMaui.ListPage"
+                           x:Name="Page"
+                           BackgroundColor="{AppThemeBinding Light=LightBlue, Dark=#3b4a4f}">
+    <ContentPage.Resources>
+        <helloMaui:RefreshViewHeightConverter
+            x:Key="RefreshViewHeightConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="0">
+            <SearchBar
+                Placeholder="search titles"
+                TextColor="{AppThemeBinding Light=Black, Dark=LightGray}"
+                BackgroundColor="{AppThemeBinding Light=LightBlue, Dark=#3b4a4f}"
+                x:Name="SearchBar"
+                Text="{Binding SearchBarText}">
+                <SearchBar.Behaviors>
+                    <toolkit:UserStoppedTypingBehavior
+                        x:DataType="helloMaui:ListViewModel"
+                        BindingContext="{Binding Path=BindingContext, Source={x:Reference SearchBar}}"
+                        StoppedTypingTimeThreshold="1000"
+                        ShouldDismissKeyboardAutomatically="true"
+                        Command="{Binding UserStoppedTypingCommand}" />
+                </SearchBar.Behaviors>
+                <SearchBar.GestureRecognizers>
+                    <TapGestureRecognizer
+                        NumberOfTapsRequired="2"
+                        Tapped="HandleSearchBarTappedTwice" />
+                </SearchBar.GestureRecognizers>
+            </SearchBar>
+            <RefreshView
+                Margin="12, 0"
+                HeightRequest="{Binding Path=Height, 
+                                        Source={x:Reference SearchBar},
+                                        Converter={StaticResource RefreshViewHeightConverter},
+                                        ConverterParameter={x:Reference Page}}"
+                IsRefreshing="{Binding IsRefreshing}"
+                Command="{Binding RefreshCommand}">
+                <RefreshView.Content>
+                    <CollectionView
+                        CanReorderItems="true"
+                        SelectionMode="Single"
+                        SelectionChanged="HandleSelectionChanged"
+                        ItemsSource="{Binding MauiLibraries, Mode=OneTime}">
+                        <CollectionView.Header>
+                            <Label
+                                Text=".NET MAUI Libraries"
+                                TextColor="{AppThemeBinding Light=Black, Dark=LightGray}"
+                                Padding="0,0,0,8"
+                                FontSize="32"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"/>
+                        </CollectionView.Header>
+                        <CollectionView.Footer>
+                            <Label
+                                Text=".NET MAUI: From Zero to Hero"
+                                TextColor="{AppThemeBinding Light=#474f52, Dark=DarkGrey}"
+                                Padding="8,0,0,0"
+                                FontSize="10"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"/>
+                        </CollectionView.Footer>
+                        <CollectionView.ItemTemplate>
+                            <helloMaui:MauiLibrariesDataTemplate />
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView.Content>
+            </RefreshView>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</helloMaui:BaseContentPage>
