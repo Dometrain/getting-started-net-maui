@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/"
+    directory: "/15. MVVM Architecture/src/2. MVVM Toolkit (C#)/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
