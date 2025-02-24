@@ -44,8 +44,8 @@ jobs:
 
     - name: Build Final Course Solution, MVVM Toolkit C#
       run: |
-        dotnet build -c Release "./15. MVVM Architecture/src/2. MVVM Toolkit (C#)/HelloMaui.sln"
+        dotnet build "./15. MVVM Architecture/src/2. MVVM Toolkit (C#)/HelloMaui.sln"
 
     - name: Build Final Course Solution, MVVM Toolkit XAML
       run: |
-        dotnet build -c Release "./15. MVVM Architecture/src/2a. MVVM Toolkit (XAML)/HelloMaui.sln"
+        dotnet build "./15. MVVM Architecture/src/2a. MVVM Toolkit (XAML)/HelloMaui.sln"
