@@ -9,3 +9,7 @@ updates:
     directory: "/15. MVVM Architecture/src/2. MVVM Toolkit (C#)/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "dotnet-sdk"
+    directory: "/"
+    schedule:
+      interval: "weekly"
