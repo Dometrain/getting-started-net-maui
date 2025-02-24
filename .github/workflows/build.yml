@@ -29,7 +29,9 @@ jobs:
         dotnet-version: '9.x' # Adjust to your required .NET SDK version
 
     - name: Install .NET MAUI
-      run: 'dotnet workload install maui'
+      run: |
+        dotnet workload install maui
+        dotnet workload update
 
     - name: Install Xcode
       if: runner.os == 'macOS'
