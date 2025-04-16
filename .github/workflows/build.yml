@@ -44,10 +44,10 @@ jobs:
 
     - name: Build Final Course Solution, MVVM Toolkit C#
       run: |
-        cd "./15. MVVM Architecture/src/2. MVVM Toolkit (C#)/"
+        cd "./15. MVVM Architecture/src/2. MVVM Toolkit in C#/"
         dotnet build
 
     - name: Build Final Course Solution, MVVM Toolkit XAML
       run: |
-        cd "../2a. MVVM Toolkit (XAML)/"
+        cd "../2a. MVVM Toolkit in XAML/"
         dotnet build
